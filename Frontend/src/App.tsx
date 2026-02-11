@@ -1,39 +1,31 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./Login";
-import Dashboard from "./Dashboard";
-import PrivateRoute from "./PrivateRoute";
+import LandingPage from "./pages/LandingPage";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
-  const isAuthenticated = sessionStorage.getItem("token"); // example
-
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public Home / Landing Page */}
+        <Route path="/" element={<LandingPage />} />
 
-        {/* Public Route */}
-        <Route
-          path="/login"
-          element={
-            isAuthenticated ? <Navigate to="/dashboard" /> : <Login />
-          }
-        />
+        {/* Login Page */}
+        <Route path="/login" element={<Login />} />
 
-        {/* Private Routes */}
+        {/* Protected Dashboard */}
         <Route
           path="/dashboard"
           element={
-            <PrivateRoute isAuthenticated={isAuthenticated}>
+            <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           }
         />
 
-        {/* Default Route */}
-        <Route
-          path="*"
-          element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />}
-        />
-
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );
