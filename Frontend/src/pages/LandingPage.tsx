@@ -42,7 +42,7 @@ const LandingPage = () => {
           </motion.div>
           <div className="hidden lg:flex gap-8 text-sm font-bold text-slate-500 uppercase tracking-widest">
             <a href="#" className="hover:text-blue-600 transition-colors relative group">
-              Intro feature
+              Introduction
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 scale-x-100 origin-left transition-transform" />
             </a>
             <a href="#" className="hover:text-blue-600 transition-colors relative group">
