@@ -62,7 +62,7 @@ const LandingPage = () => {
       </nav>
 
       {/* 2. Animated Hero Section */}
-      <header className="relative pt-32 pb-40 px-6 text-center overflow-hidden">
+      <header className="relative pt-32 pb-10 px-6 text-center overflow-hidden">
         {/* Background Decorative Elements */}
         <motion.div 
           animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
